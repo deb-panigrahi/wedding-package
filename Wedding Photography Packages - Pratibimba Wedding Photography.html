@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Photography Packages | Pratibimba Wedding Photography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #1a2a3a;
+            --primary-light: #2c4a63;
+            --accent-rose: #d48a96; 
+            --accent-gold: #d4af37;
+            --bg-light: #faf9f8;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: var(--white);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--primary-dark);
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-rose);
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            display: block;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 42, 58, 0.85), rgba(26, 42, 58, 0.85)), url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=2000') center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px 120px;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 3rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--accent-rose);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: -60px auto 40px;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* Packages Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .package-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            padding: 40px 30px;
+            position: relative;
+            border-top: 5px solid var(--primary-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+
+        .package-card.popular {
+            border-top: 5px solid var(--accent-rose);
+            transform: scale(1.03);
+            z-index: 10;
+        }
+
+        .package-card.popular:hover {
+            transform: scale(1.03) translateY(-10px);
+        }
+        
+        .package-card.premium {
+            border-top: 5px solid var(--accent-gold);
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-rose);
+            color: var(--white);
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pkg-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .pkg-header h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 32px;
+            color: var(--accent-rose);
+            font-weight: 600;
+        }
+        
+        .premium .price {
+            color: var(--accent-gold);
+        }
+
+        .price span {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+        
+        .pkg-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .pkg-note {
+            font-size: 11.5px;
+            color: var(--primary-light);
+            margin-top: 4px;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .pkg-features {
+            flex-grow: 1;
+        }
+
+        .pkg-features h4 {
+            font-size: 16px;
+            margin: 20px 0 10px;
+            color: var(--primary-dark);
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+
+        .pkg-features ul {
+            list-style: none;
+        }
+
+        .pkg-features ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 13.5px;
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+
+        .pkg-features ul li::before {
+            content: "✓";
+            color: var(--accent-rose);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .premium .pkg-features ul li::before {
+            color: var(--accent-gold);
+        }
+
+        .crew-breakdown li {
+            padding-left: 0 !important;
+            margin-bottom: 15px !important;
+        }
+        
+        .crew-breakdown li::before {
+            display: none !important;
+        }
+        
+        .crew-title {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-light);
+            margin-bottom: 4px;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .add-on-text {
+            font-size: 13px;
+            color: #888;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #eee;
+            text-align: center;
+        }
+
+        /* Special Offer */
+        .offer-box {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+            color: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(26, 42, 58, 0.2);
+        }
+
+        .offer-box::before {
+            content: "✨";
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.05;
+            right: -20px;
+            top: -30px;
+        }
+
+        .offer-box h3 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        .offer-box p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        /* Sections Layout */
+        .info-section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-rose);
+            margin: 10px auto 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        th {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--bg-light);
+        }
+
+        /* Terms and Conditions */
+        .tc-list {
+            list-style: none;
+        }
+        .tc-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+        .tc-list li::before {
+            content: "▪";
+            color: var(--primary-light);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Contact Details Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .contact-item {
+            background-color: var(--bg-light);
+            padding: 30px 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-bottom: 4px solid var(--accent-gold);
+            transition: transform 0.3s;
+        }
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+        .contact-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        .contact-title {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        .contact-link {
+            color: var(--primary-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        .contact-link:hover {
+            color: var(--accent-rose);
+        }
+        .contact-text {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 50px 20px 40px;
+            margin-top: 60px;
+        }
+
+        .footer-content h4 {
+            color: var(--white);
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .hashtags {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #8c9ca8;
+            font-style: italic;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 2;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hashtags span {
+            display: inline-block;
+            margin: 0 8px;
+            color: var(--accent-gold);
+            transition: color 0.3s;
+        }
+        
+        .hashtags span:hover {
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .package-card.popular {
+                transform: scale(1);
+            }
+            .package-card.popular:hover {
+                transform: translateY(-10px);
+            }
+        }
+        @media (max-width: 768px) {
+            .container {
+                margin-top: -30px;
+            }
+            .hero {
+                padding: 60px 20px 80px;
+            }
+            th, td {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">Pratibimba <span>Wedding Photography</span></a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Your Love Story, Beautifully Told</h1>
+        <p>Curated photography & cinematography packages tailored for your perfect day.</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        
+        <!-- Pricing Grid -->
+        <div class="pricing-grid">
+            
+            <!-- Essential Package -->
+            <div class="package-card">
+                <div class="pkg-header">
+                    <h2>Essential</h2>
+                    <div class="price">₹50,000</div>
+                    <div class="pkg-subtitle">3 Days: Engagement, Sangeet, Wedding</div>
+                    <div class="pkg-subtitle">Single Side Coverage</div>
+                    <div class="pkg-note">*For Groom Side, Reception will be covered in place of Sangeet</div>
+                </div>
+                <div class="pkg-features">
+                    <h4>Crew</h4>
+                    <ul>
+                        <li>1 Professional Photographer (3 Days)</li>
+                        <li>1 Cinematographer with Gimbal (3 Days)</li>
+                        <li>Complete Lighting Setup</li>
+                    </ul>
+                    <h4>Deliverables</h4>
+                    <ul>
+                        <li>1 Wedding Album (14×40, 30 Sheets, 200 Pics)</li>
+                        <li>1 Mini Album & 1 Table Calendar</li>
+                        <li>1 Full Video & 1 Wedding Highlights</li>
+                        <li>1 Invitation Video</li>
+                    </ul>
+                </div>
+                <div class="add-on-text">
+                    Drone Coverage: ₹4K/Day Extra<br>Travel Cost Extra
+                </div>
+            </div>
+
+            <!-- Comprehensive Package -->
+            <div class="package-card popular">
+                <div class="popular-tag">Comprehensive</div>
+                <div class="pkg-header">
+                    <h2>Comprehensive</h2>
+                    <div class="price">₹70,000</div>
+                    <div class="pkg-subtitle">3 Days: Engagement, Sangeet, Wedding</div>
+                    <div class="pkg-subtitle">Single Side Coverage</div>
+                    <div class="pkg-note">*For Groom Side, Reception will be covered in place of Sangeet</div>
+                </div>
+                <div class="pkg-features">
+                    <h4>Crew Breakdown</h4>
+                    <ul class="crew-breakdown">
+                        <li><span class="crew-title">Engagement</span> 1 Professional Photographer & 1 Cinematographer with Gimbal</li>
+                        <li><span class="crew-title">Sangeet</span> 1 Professional Photographer & 1 Cinematographer with Gimbal</li>
+                        <li><span class="crew-title">Wedding</span> 1 Professional Photographer, 1 Candid Photographer & 1 Cinematographer with Gimbal</li>
+                    </ul>
+                    <ul>
+                        <li>Complete Lighting Setup</li>
+                        <li>Drone Coverage included for 1 Day</li>
+                    </ul>
+                    <h4>Deliverables</h4>
+                    <ul>
+                        <li>1 Wedding Album (14×40, 35 Sheets) with Emboss Cover</li>
+                        <li>1 Premium Photo printed Album Attaché Case</li>
+                        <li>1 Mini Album & 1 Table Calendar</li>
+                        <li>1 12x18 Couple Premium Photoframe</li>
+                        <li>1 Full Cinematic Video & 1 Wedding Highlights</li>
+                        <li>1 Social Media Reel</li>
+                        <li>Premium Digital Invitation Video</li>
+                    </ul>
+                </div>
+                <div class="add-on-text">
+                    Extra Drone Days: ₹4K/Day<br>Travel Cost Extra
+                </div>
+            </div>
+
+            <!-- Ultimate Package -->
+            <div class="package-card premium">
+                <div class="pkg-header">
+                    <h2>Ultimate</h2>
+                    <div class="price">₹95,000</div>
+                    <div class="pkg-subtitle">3 Days Coverage + Pre-Wedding</div>
+                    <div class="pkg-subtitle">Single Side Premium Coverage</div>
+                    <div class="pkg-note">*For Groom Side, Reception will be covered in place of Sangeet</div>
+                </div>
+                <div class="pkg-features">
+                    <h4>Crew Breakdown</h4>
+                    <ul class="crew-breakdown">
+                        <li><span class="crew-title">Engagement</span> 1 Professional Photographer, 1 Candid Photographer & 1 Cinematographer with Gimbal</li>
+                        <li><span class="crew-title">Sangeet</span> 1 Professional Photographer & 1 Cinematographer with Gimbal</li>
+                        <li><span class="crew-title">Wedding</span> 1 Professional Photographer, 1 Candid Photographer, 1 Cinematographer with Gimbal & 1 Candid Cinematographer</li>
+                    </ul>
+                    <ul>
+                        <li>Complete Lighting Setup</li>
+                        <li>Drone Coverage included for 1 Day</li>
+                        <li>Pre-wedding Photoshoot or Cinematic shoot for 1 Day</li>
+                    </ul>
+                    <h4>Deliverables</h4>
+                    <ul>
+                        <li>1 Wedding Album (14×40, 35 Sheets) with Emboss Cover</li>
+                        <li>1 Couple Wedding Album</li>
+                        <li>1 Premium Photo printed Album Attaché Case</li>
+                        <li>1 Mini Album & 1 Table Calendar</li>
+                        <li>1 12x18 Couple Premium Photoframe</li>
+                        <li>1 12x18 Family Premium Photoframe</li>
+                        <li>1 Full Cinematic Video & 1 Wedding Highlights</li>
+                        <li>2 Social Media Reels</li>
+                        <li>Premium Digital Invitation Video</li>
+                        <li>1 Interactive Web Invitation</li>
+                        <li>Social Media Countdown Posts</li>
+                    </ul>
+                </div>
+                <div class="add-on-text">
+                    All inclusive (Travel/Accommodation Extra)
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Both Side Booking Bonus Box -->
+        <div class="offer-box">
+            <h3>✨ Both Side Booking Bonus</h3>
+            <p>Book <strong>ANY Package</strong> for <strong>Both Sides (Bride & Groom)</strong> and receive:</p>
+            <div style="display: inline-block; text-align: left; background: rgba(255,255,255,0.1); padding: 30px; border-radius: 8px; max-width: 800px;">
+                <ul style="list-style: none; margin: 0; padding: 0;">
+                    <li style="margin-bottom: 20px; font-size: 16px;">
+                        <strong style="color: var(--accent-gold); font-size: 18px;">✓ Free Drone Coverage during the Baraat</strong><br>
+                        <span style="font-size: 14px; opacity: 0.9; display: block; margin-top: 5px;">(If your package already has drone coverage, you can seamlessly use it for your Engagement, Sangeet, or Reception instead.)</span>
+                    </li>
+                    <li style="font-size: 16px;">
+                        <strong style="color: var(--accent-gold); font-size: 18px;">✓ Free Pre-Wedding Photoshoot</strong><br>
+                        <span style="font-size: 14px; opacity: 0.9; display: block; margin-top: 5px;">(Photography only. For the Ultimate package, you can utilize your included cinematic coverage alongside the photoshoot to create a complete, fully covered pre-wedding shoot experience.)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Payment Schedule -->
+        <div class="info-section">
+            <h2 class="section-title">Standard Payment Schedule</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Installment</th>
+                        <th>Amount Due</th>
+                        <th>Milestone Timeline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1st Payment</strong></td>
+                        <td>25% of Package</td>
+                        <td>Advance booking (To be paid prior to Engagement)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2nd Payment</strong></td>
+                        <td>25% of Package</td>
+                        <td>To be paid 1 Month prior to the Wedding Date</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3rd Payment</strong></td>
+                        <td>25% of Package</td>
+                        <td>To be paid immediately after the Wedding Event</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Final Payment</strong></td>
+                        <td>25% of Package</td>
+                        <td>To be paid upon the final delivery of Album & Videos</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div class="info-section">
+            <h2 class="section-title">Terms & Conditions</h2>
+            <ul class="tc-list">
+                <li><strong>Deliverables Timeline:</strong> Final edited photos, videos, and albums will be delivered within 1 to 2 months after the final event date, provided the photo selection is done on time.</li>
+                <li><strong>Raw Files:</strong> Raw, unedited footage and photos will be provided within 1 week of the event date.</li>
+                <li><strong>Cancellation Policy:</strong> The booking advance (1st Payment) is strictly non-refundable in the event of cancellation or date changes by the client.</li>
+                <li><strong>Event Logistics:</strong> The client is responsible for ensuring basic meals for the photography crew during shooting hours at the venue.</li>
+                <li><strong>Additional Hours:</strong> Any significant delays or requests to shoot beyond the agreed timeline may incur additional hourly charges.</li>
+                <li><strong>Copyright & Usage:</strong> The studio retains the right to use selected photographs and video highlights for portfolio, social media, and promotional purposes unless a non-disclosure agreement (NDA) is signed prior to the event.</li>
+            </ul>
+        </div>
+
+        <!-- Contact Details -->
+        <div class="info-section">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-title">Phone / WhatsApp</div>
+                    <a href="tel:+919938984453" class="contact-link">+91 9938984453</a>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-title">Email Us</div>
+                    <a href="mailto:iammrdeb@gmail.com" class="contact-link">iammrdeb@gmail.com</a>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-title">Address</div>
+                    <div class="contact-text">Puri Canal Road, Hanspal<br>Bhubaneswar</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h4>Pratibimba Wedding Photography</h4>
+            <p>Capturing memories that last a lifetime.</p>
+        </div>
+        
+        <!-- Wedding Photography Hashtags -->
+        <div class="hashtags">
+            <span>#WeddingPhotography</span>
+            <span>#IndianWedding</span>
+            <span>#WeddingInspiration</span>
+            <span>#BrideAndGroom</span>
+            <span>#WeddingMoments</span>
+            <span>#CinematicWedding</span>
+            <span>#WeddingHighlights</span>
+            <span>#WeddingAlbum</span>
+            <span>#PreWeddingShoot</span>
+            <span>#CouplePortraits</span>
+            <span>#CandidPhotography</span>
+            <span>#WeddingDetails</span>
+            <span>#DesiWedding</span>
+            <span>#WeddingPhotographer</span>
+            <span>#LoveStory</span>
+            <span>#WeddingDay</span>
+            <span>#BridalPortraits</span>
+            <span>#LuxuryWedding</span>
+            <span>#IndianWeddingBuzz</span>
+            <span>#DestinationWeddingPhotographer</span>
+        </div>
+    </footer>
+
+</body>
+</html>
